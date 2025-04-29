@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CleanPro Tel Aviv</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-broom text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">CleanPro</span>
+                    </a>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="/" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="/services" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="/portfolio" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Portfolio</a>
+                        <a href="/blog" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Blog</a>
+                        <a href="/contact" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    Contact Us
+                </h1>
+                <p class="mt-4 text-xl text-gray-500">
+                    Get in touch for professional cleaning services in Tel Aviv
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
+                <form action="/submit_contact" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                        <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-sm font-medium text-gray-700">Service Needed</label>
+                        <select name="service" id="service" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select a service</option>
+                            <option value="home">Home Cleaning</option>
+                            <option value="office">Office Cleaning</option>
+                            <option value="deep">Deep Cleaning</option>
+                            <option value="windows">Window Cleaning</option>
+                            <option value="carpet">Carpet Cleaning</option>
+                            <option value="post-construction">Post-Construction Cleaning</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea name="message" id="message" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="space-y-8">
+                <!-- Quick Contact -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick Contact</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone text-blue-600 mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900">Phone</p>
+                                <p class="text-gray-500">+972 50-000-0000</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-envelope text-blue-600 mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900">Email</p>
+                                <p class="text-gray-500">info@cleanpro.co.il</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clock text-blue-600 mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900">Working Hours</p>
+                                <p class="text-gray-500">Sunday - Thursday: 8:00 - 20:00</p>
+                                <p class="text-gray-500">Friday: 8:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Areas -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Service Areas</h2>
+                    <div class="space-y-2 text-gray-500">
+                        <p>• Tel Aviv</p>
+                        <p>• Ramat Gan</p>
+                        <p>• Givatayim</p>
+                        <p>• Herzliya</p>
+                        <p>• Bat Yam</p>
+                        <p>• Holon</p>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Follow Us</h2>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-600"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-600"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-white">
+                    <h3 class="text-lg font-bold mb-4">CleanPro Tel Aviv</h3>
+                    <p class="text-gray-300">Professional cleaning services for homes and offices in Tel Aviv</p>
+                </div>
+                <div class="text-white">
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300">Email: info@cleanpro.co.il</p>
+                    <p class="text-gray-300">Phone: +972 50-000-0000</p>
+                </div>
+                <div class="text-white">
+                    <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8">
+                <p class="text-center text-gray-300">&copy; 2025 CleanPro Tel Aviv. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

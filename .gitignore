@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local development settings
+.env
+.flaskenv
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.pytest_cache/
