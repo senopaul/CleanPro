@@ -41,6 +41,20 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # TODO: Implement login logic
+        return redirect(url_for("home"))
+    return render_template("auth/login.html")
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # TODO: Implement registration logic
+        return redirect(url_for("login"))
+    return render_template("auth/register.html")
+
 @app.route("/services")
 def services():
     return render_template("services.html")
