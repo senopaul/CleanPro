@@ -1,4 +1,7 @@
-from flask import Flask, render_template, request
+import os
+import datetime
+import logging
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -95,10 +98,19 @@ def blog():
 def blog_post(post_id):
     return render_template("blog_post.html", post_id=post_id)
 
+# Health Check Endpoint
+@app.route("/health")
+def health_check():
+    """Health check endpoint for monitoring and load balancers."""
+    status = {
+        "status": "ok",
+        "app_name": "CleanPro",
+        "version": "1.0.0",
+        "timestamp": datetime.datetime.now().isoformat(),
+    }
+    return status, 200
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
 
-    
-    
-    

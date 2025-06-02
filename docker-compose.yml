@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  # Web application service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cleanpro:latest
+    container_name: cleanpro-web
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://cleanpro:cleanpro@db:5432/cleanpro
+      - SECRET_KEY=development_key_change_in_production
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - ./:/app
+      - ./static:/app/static
+      - ./logs:/app/logs
+    depends_on:
+      - db
+    networks:
+      - cleanpro-network
+    # Override the production command for development
+    command: flask run --host=0.0.0.0 --port=5000 --debugger --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Database service
+  db:
+    image: postgres:14
+    container_name: cleanpro-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=cleanpro
+      - POSTGRES_PASSWORD=cleanpro
+      - POSTGRES_DB=cleanpro
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - cleanpro-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cleanpro"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Adminer for database management (development only)
+  adminer:
+    image: adminer
+    container_name: cleanpro-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - cleanpro-network
+
+volumes:
+  postgres_data:
+    name: cleanpro-postgres-data
+
+networks:
+  cleanpro-network:
+    name: cleanpro-network
+    driver: bridge
+
